@@ -4,15 +4,7 @@ A comprehensive crash detection system for Eve Online that monitors for silent c
 
 ## 🎯 Overview
 
-This project provideWrite-Host "✅ Required packages available" -ForegroundColor Green
-} catch {
-    Write-Host "❌ Required packages missing - run: .\scripts\install.bat" -ForegroundColor Red
-}
-```
-
-**📚 For detailed virtual environment troubleshooting, see: [`docs/VIRTUAL_ENVIRONMENT_GUIDE.md`](docs/VIRTUAL_ENVIRONMENT_GUIDE.md)**
-
-## 🔍 Monitoring Featuresmonitoring solutions to detect Eve Online crashes that don't show traditional error messages:
+This project provides multiple monitoring solutions to detect Eve Online crashes that don't show traditional error messages:
 
 - **Python Monitor**: Advanced monitoring with Windows Event Log integration and comprehensive crash analysis
 - **PowerShell Monitor**: Lightweight real-time process monitoring with minimal dependencies
@@ -82,7 +74,7 @@ This project provideWrite-Host "✅ Required packages available" -ForegroundColo
    .\eve_monitor.ps1 -Action status
    ```
 
-## � Virtual Environment Management
+## 🔧 Virtual Environment Management
 
 ### Understanding the Virtual Environment
 
@@ -221,7 +213,9 @@ try {
 }
 ```
 
-## �🔍 Monitoring Features
+**📚 For detailed virtual environment troubleshooting, see: [`docs/VIRTUAL_ENVIRONMENT_GUIDE.md`](docs/VIRTUAL_ENVIRONMENT_GUIDE.md)**
+
+## 🔍 Monitoring Features
 
 ### Python Advanced Monitor
 - ✅ **Windows Event Log Analysis** - Scans for application crashes, system errors, and hardware failures
