@@ -27,10 +27,6 @@ updates:
       # Allow updates for all dependency types
       - dependency-type: "direct"
       - dependency-type: "indirect"
-    ignore:
-      # Example: ignore specific packages if needed
-      # - dependency-name: "package-name"
-      #   versions: ["1.x", "2.x"]
     
   # GitHub Actions dependencies (if you add any CI/CD workflows)
   - package-ecosystem: "github-actions"
@@ -40,9 +36,9 @@ updates:
       day: "monday"
       time: "09:00"
     reviewers:
-      - "maintainer-username"  # Replace with your GitHub username
+      - "thrainthepain"
     assignees:
-      - "maintainer-username"  # Replace with your GitHub username
+      - "thrainthepain"
     labels:
       - "dependencies"
       - "github-actions"
