@@ -1,0 +1,52 @@
+# Dependabot configuration for Eve Online Crash Monitor
+# This file configures automatic dependency updates for the project
+# Documentation: https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Python dependencies in the main python directory
+  - package-ecosystem: "pip"
+    directory: "/python"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    reviewers:
+      - "thrainthepain"
+    assignees:
+      - "thrainthepain"
+    labels:
+      - "dependencies"
+      - "python"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+    open-pull-requests-limit: 5
+    allow:
+      # Allow updates for all dependency types
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    ignore:
+      # Example: ignore specific packages if needed
+      # - dependency-name: "package-name"
+      #   versions: ["1.x", "2.x"]
+    
+  # GitHub Actions dependencies (if you add any CI/CD workflows)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    reviewers:
+      - "maintainer-username"  # Replace with your GitHub username
+    assignees:
+      - "maintainer-username"  # Replace with your GitHub username
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    open-pull-requests-limit: 2
