@@ -1,0 +1,12 @@
+{
+    "check_interval": 5,
+    "process_names": [
+        "ExeFile.exe",
+        "eve.exe"
+    ],
+    "log_level": "INFO",
+    "enable_process_monitoring": true,
+    "enable_system_monitoring": true,
+    "crash_detection_threshold": 30,
+    "output_file": "eve_crash_log_simple.txt"
+}
