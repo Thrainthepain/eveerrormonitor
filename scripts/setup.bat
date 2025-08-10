@@ -1,5 +1,9 @@
 @echo off
 title Eve Online Crash Monitor Setup
+
+REM Change to project root directory
+cd /d "%~dp0\.."
+
 echo.
 echo ================================================================
 echo                  EVE ONLINE CRASH MONITOR SETUP
@@ -70,7 +74,7 @@ if errorlevel 1 (
 echo ✓ Python found
 echo.
 echo Testing the simple monitor...
-python test_monitor.py
+.venv\Scripts\python.exe python\test_monitor.py
 
 if errorlevel 1 (
     echo.
@@ -83,7 +87,7 @@ echo.
 echo ✓ Simple monitor setup complete!
 echo.
 echo To start monitoring:
-echo 1. Run: python simple_eve_monitor.py
+echo 1. Run: .venv\Scripts\python.exe python\simple_eve_monitor.py
 echo 2. Type 'start' to begin monitoring
 echo 3. Launch Eve Online
 echo 4. Play normally - crashes will be detected automatically
@@ -94,7 +98,7 @@ set /p start_now=""
 if /i "%start_now%"=="y" (
     echo.
     echo Starting monitor...
-    python simple_eve_monitor.py
+    .venv\Scripts\python.exe python\simple_eve_monitor.py
 )
 goto menu
 
@@ -115,8 +119,20 @@ if errorlevel 1 (
 
 echo ✓ Python found
 echo.
+
+REM Check if virtual environment exists, create if not
+if not exist ".venv" (
+    echo Creating virtual environment...
+    python -m venv .venv
+    if errorlevel 1 (
+        echo ERROR: Failed to create virtual environment
+        pause
+        goto menu
+    )
+)
+
 echo Installing required packages...
-pip install psutil pywin32
+.venv\Scripts\pip.exe install psutil pywin32
 
 if errorlevel 1 (
     echo.
@@ -126,13 +142,12 @@ if errorlevel 1 (
 )
 
 echo.
-echo Testing the full monitor...
-python -c "import eve_crash_monitor; print('✓ Full monitor imported successfully')"
+echo Testing the installation...
+.venv\Scripts\python.exe python\test_installation.py
 
 if errorlevel 1 (
     echo.
-    echo Full monitor test failed. Falling back to simple monitor.
-    echo You can still use: python simple_eve_monitor.py
+    echo Installation test failed. Check the output above.
     pause
     goto menu
 )
@@ -141,7 +156,7 @@ echo.
 echo ✓ Full monitor setup complete!
 echo.
 echo To start monitoring:
-echo 1. Run: python eve_crash_monitor.py
+echo 1. Run: .venv\Scripts\python.exe python\eve_crash_monitor.py
 echo 2. Type 'start' to begin monitoring
 echo 3. Launch Eve Online
 echo.
@@ -150,7 +165,7 @@ set /p start_now=""
 if /i "%start_now%"=="y" (
     echo.
     echo Starting monitor...
-    python eve_crash_monitor.py
+    .venv\Scripts\python.exe python\eve_crash_monitor.py
 )
 goto menu
 
@@ -174,13 +189,21 @@ if errorlevel 1 (
 echo ✓ PowerShell available
 echo.
 echo Testing PowerShell monitor...
-powershell -File eve_monitor.ps1 -Action status
+
+REM Check if PowerShell monitor exists
+if not exist "powershell\eve_monitor.ps1" (
+    echo WARNING: PowerShell monitor script not found at powershell\eve_monitor.ps1
+    echo You can still use the Python monitor.
+) else (
+    powershell -File powershell\eve_monitor.ps1 -Action status
+    echo ✓ PowerShell monitor test complete
+)
 
 echo.
 echo ✓ PowerShell monitor setup complete!
 echo.
 echo To start monitoring:
-echo 1. Run: powershell -File eve_monitor.ps1
+echo 1. Run: powershell -File powershell\eve_monitor.ps1
 echo 2. Type 'start' to begin monitoring
 echo 3. Launch Eve Online
 echo.
@@ -189,7 +212,12 @@ set /p start_now=""
 if /i "%start_now%"=="y" (
     echo.
     echo Starting PowerShell monitor...
-    powershell -File eve_monitor.ps1
+    if exist "powershell\eve_monitor.ps1" (
+        powershell -File powershell\eve_monitor.ps1
+    ) else (
+        echo ERROR: PowerShell monitor script not found
+        echo Please use the Python monitor instead: .\scripts\run_monitor.bat
+    )
 )
 goto menu
 
@@ -209,7 +237,7 @@ if errorlevel 1 (
 
 echo.
 echo Testing monitors...
-python test_monitor.py
+.venv\Scripts\python.exe python\test_monitor.py
 
 echo.
 echo Testing PowerShell...

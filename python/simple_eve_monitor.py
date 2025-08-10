@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
 
 class SimpleEveMonitor:
-    def __init__(self, config_file: str = "../logs/simple_monitor_config.json"):
+    def __init__(self, config_file: str = "simple_monitor_config.json"):
         self.config_file = config_file
         self.config: Dict[str, Any] = self.load_config()
         self.setup_logging()
@@ -31,7 +31,7 @@ class SimpleEveMonitor:
             "enable_process_monitoring": True,
             "enable_system_monitoring": True,
             "crash_detection_threshold": 30,
-            "output_file": "eve_crash_log_simple.txt"
+            "output_file": "../logs/eve_crash_log_simple.txt"
         }
         
         try:

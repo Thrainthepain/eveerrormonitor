@@ -1,0 +1,13 @@
+{
+    "check_interval": 3,
+    "process_names": [
+        "ExeFile.exe",
+        "eve.exe",
+        "EVE.exe"
+    ],
+    "log_level": "INFO",
+    "crash_detection_threshold": 20,
+    "output_file": "eve_crash_log.json",
+    "enable_memory_monitoring": true,
+    "memory_threshold_mb": 3500
+}

@@ -36,8 +36,51 @@ if errorlevel 1 (
 echo.
 echo Installation complete!
 echo.
+echo Testing installation...
+
+REM Test virtual environment and dependencies
+echo Checking virtual environment...
+.venv\Scripts\python.exe --version
+if errorlevel 1 (
+    echo ERROR: Virtual environment Python not working
+    goto :error
+)
+
+echo Testing required packages...
+.venv\Scripts\python.exe -c "import psutil; print('✓ psutil available')"
+if errorlevel 1 (
+    echo ERROR: psutil package not working
+    goto :error
+)
+
+.venv\Scripts\python.exe -c "import win32evtlog; print('✓ pywin32 available')"
+if errorlevel 1 (
+    echo ERROR: pywin32 package not working
+    goto :error
+)
+
+echo Testing monitor script...
+.venv\Scripts\python.exe python\test_installation.py
+if errorlevel 1 (
+    echo WARNING: Installation test failed
+    goto :error
+)
+
+echo.
+echo ✅ Installation completed successfully!
+echo.
 echo You can now run:
 echo   scripts\run_monitor.bat          (Launch the crash monitor)
-echo   python simple_eve_monitor.py   (Simple monitor with basic features)
+echo   E:\eve\.venv\Scripts\python.exe python\simple_eve_monitor.py   (Simple monitor)
 echo.
+goto :end
+
+:error
+echo.
+echo ❌ Installation completed with errors.
+echo The monitor may not work properly.
+echo Try running this script as Administrator.
+echo.
+
+:end
 pause

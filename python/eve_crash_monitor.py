@@ -551,7 +551,11 @@ Additional Details: {crash_data.get('details', 'No additional details')}
 
 def main():
     """Main function to run the crash monitor."""
-    monitor = EveOnlineCrashMonitor()
+    # Determine config file path - look for it in the python directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    config_path = os.path.join(script_dir, "crash_monitor_config.json")
+    
+    monitor = EveOnlineCrashMonitor(config_path)
     
     try:
         print("Eve Online Crash Monitor")

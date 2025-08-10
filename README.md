@@ -355,10 +355,7 @@ For issues or questions:
 2. Review log files in the `logs/` folder for error details
 3. Ensure all system requirements are met
 4. Verify Eve Online process name matches your installation
-5. Create an Issue at https://github.com/Thrainthepain/eveerrormonitor/issues
-6. Start a discussion at https://github.com/Thrainthepain/eveerrormonitor/discussions
 
 ---
-
 
 **Happy monitoring, capsuleer! Fly safe and crash-free! 🚀**

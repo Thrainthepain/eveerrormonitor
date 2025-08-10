@@ -9,6 +9,34 @@ import os
 import json
 from typing import Dict, Union, List
 
+# Character encoding helper for better compatibility
+def get_check_mark():
+    """Get appropriate check mark for current terminal."""
+    try:
+        # Try to use Unicode checkmark
+        print("✓", end="")
+        return "✓"
+    except UnicodeEncodeError:
+        return "[OK]"
+
+def get_cross_mark():
+    """Get appropriate cross mark for current terminal."""
+    try:
+        # Try to use Unicode cross
+        print("✗", end="")
+        return "✗"
+    except UnicodeEncodeError:
+        return "[FAIL]"
+
+def get_warning_mark():
+    """Get appropriate warning mark for current terminal."""
+    try:
+        # Try to use Unicode warning
+        print("⚠", end="")
+        return "⚠"
+    except UnicodeEncodeError:
+        return "[WARN]"
+
 def test_monitor_basic_functionality():
     """Test basic monitor functionality."""
     print("Testing Eve Online Crash Monitor")
@@ -57,8 +85,14 @@ def test_monitor_basic_functionality():
         status = monitor.get_status()
         print("✓ Status reporting working:")
         print(f"  - Monitoring: {status['monitoring']}")
-        print(f"  - Eve processes detected: {status['eve_processes_detected']}")
-        print(f"  - Tracked processes: {status['tracked_processes']}")
+        if 'eve_processes_detected' in status:
+            print(f"  - Eve processes detected: {status['eve_processes_detected']}")
+        elif 'eve_processes' in status:
+            print(f"  - Eve processes detected: {status['eve_processes']}")
+        if 'tracked_processes' in status:
+            print(f"  - Tracked processes: {status['tracked_processes']}")
+        elif 'total_processes' in status:
+            print(f"  - Total processes: {status['total_processes']}")
     except Exception as e:
         print(f"✗ Status reporting failed: {e}")
         return False
@@ -69,18 +103,25 @@ def test_monitor_basic_functionality():
         test_crash_data = {
             'timestamp': '2024-08-09T15:30:45.123456',
             'type': 'test_event',
-            'message': 'This is a test crash event'
+            'process_info': {'name': 'test.exe', 'pid': 12345, 'cmd': 'test command'},
+            'system_info': {'cpu_percent': 50.0, 'memory_percent': 75.0, 'available_memory_gb': 8.5},
+            'details': 'This is a test crash event'
         }
         monitor.log_crash_event(test_crash_data)
         
-        # Check if file was created
-        output_file = monitor.config.get("output_file", "eve_crash_log.json")
+        # Check if file was created (now text-based, not JSON)
+        output_file = monitor.config.get("output_file", "eve_crash_log_simple.txt")
         if os.path.exists(output_file):
-            with open(output_file, 'r') as f:
-                data = json.load(f)
-            print(f"✓ Logging working: {len(data.get('crashes', []))} events logged")
+            with open(output_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            if "CRASH DETECTED" in content and "test_event" in content:
+                print("✓ Logging working: test event written to log file")
+            else:
+                print("✗ Logging failed: test event not found in log")
+                return False
         else:
-            print("✓ Logging initialized (no previous log file)")
+            print("✗ Logging failed: log file not created")
+            return False
     except Exception as e:
         print(f"✗ Logging failed: {e}")
         return False
@@ -117,14 +158,14 @@ def test_windows_commands():
     print("\nTesting Windows command availability...")
     
     commands_to_test = [
-        ('tasklist', 'Process listing'),
-        ('wmic', 'System information'),
-        ('wevtutil', 'Event log access')
+        ('tasklist', 'Process listing', True),      # Required
+        ('wmic', 'System information', False),      # Optional (deprecated)
+        ('wevtutil', 'Event log access', True)      # Required
     ]
     
-    all_available = True
+    required_available = True
     
-    for command, description in commands_to_test:
+    for command, description, required in commands_to_test:
         try:
             result = subprocess.run([command, '/?'], 
                                   capture_output=True, 
@@ -134,18 +175,27 @@ def test_windows_commands():
             if result.returncode == 0:
                 print(f"✓ {command} available ({description})")
             else:
-                print(f"✗ {command} returned error code {result.returncode}")
-                all_available = False
+                if required:
+                    print(f"✗ {command} returned error code {result.returncode} - REQUIRED")
+                    required_available = False
+                else:
+                    print(f"⚠ {command} returned error code {result.returncode} - Optional")
         except FileNotFoundError:
-            print(f"✗ {command} not found ({description})")
-            all_available = False
+            if required:
+                print(f"✗ {command} not found ({description}) - REQUIRED")
+                required_available = False
+            else:
+                print(f"⚠ {command} not found ({description}) - Optional")
         except subprocess.TimeoutExpired:
             print(f"⚠ {command} timeout (may still work)")
         except Exception as e:
-            print(f"✗ {command} error: {e}")
-            all_available = False
+            if required:
+                print(f"✗ {command} error: {e} - REQUIRED")
+                required_available = False
+            else:
+                print(f"⚠ {command} error: {e} - Optional")
     
-    return all_available
+    return required_available
 
 def create_sample_config():
     """Create a sample configuration with optimal settings."""
