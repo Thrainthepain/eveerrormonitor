@@ -8,7 +8,7 @@ This project provides dual monitoring solutions to detect Eve Online crashes tha
 
 - **Python Monitor**: Advanced monitoring with Windows Event Log integration and comprehensive crash analysis
 - **PowerShell Monitor**: Lightweight real-time process monitoring with minimal dependencies
-- **Centralized Logging**: All monitoring data saved to structured JSON and log files
+- **Centralized Logging**: All monitoring data saved to structured text and log files
 
 ## 📁 Project Structure
 
