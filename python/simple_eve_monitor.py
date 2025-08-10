@@ -22,8 +22,28 @@ class SimpleEveMonitor:
         self.eve_processes: Dict[str, Dict[str, Any]] = {}
         self.monitoring = False
         
+    def get_logs_directory(self) -> str:
+        """Get the absolute path to the logs directory."""
+        # Get the script directory (where this file is located)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        # Go up one level to the project root and then to logs
+        project_root = os.path.dirname(script_dir)
+        logs_dir = os.path.join(project_root, "logs")
+        
+        # Create logs directory if it doesn't exist
+        os.makedirs(logs_dir, exist_ok=True)
+        
+        return logs_dir
+        
     def load_config(self) -> Dict[str, Any]:
         """Load configuration from file or create default config."""
+        # Get the logs directory path using a simple calculation
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(script_dir)
+        logs_dir = os.path.join(project_root, "logs")
+        os.makedirs(logs_dir, exist_ok=True)
+        default_output_file = os.path.join(logs_dir, "eve_crash_log_simple.txt")
+        
         default_config: Dict[str, Any] = {
             "check_interval": 5,
             "process_names": ["ExeFile.exe", "eve.exe"],
@@ -31,7 +51,7 @@ class SimpleEveMonitor:
             "enable_process_monitoring": True,
             "enable_system_monitoring": True,
             "crash_detection_threshold": 30,
-            "output_file": "../logs/eve_crash_log_simple.txt"
+            "output_file": default_output_file
         }
         
         try:
@@ -254,7 +274,11 @@ class SimpleEveMonitor:
     
     def log_crash_event(self, crash_data: Dict[str, Any]):
         """Log crash event to output file."""
-        output_file: str = self.config.get("output_file", "eve_crash_log_simple.txt")
+        output_file: str = self.config.get("output_file", os.path.join(self.get_logs_directory(), "eve_crash_log_simple.txt"))
+        
+        # Ensure the output file uses absolute path
+        if not os.path.isabs(output_file):
+            output_file = os.path.join(self.get_logs_directory(), os.path.basename(output_file))
         
         try:
             # Format crash data as human-readable text

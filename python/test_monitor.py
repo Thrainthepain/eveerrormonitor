@@ -7,7 +7,7 @@ This script simulates some basic scenarios to test the monitoring functionality.
 import subprocess
 import os
 import json
-from typing import Dict, Union, List
+from typing import Dict, Union, List, Any
 
 # Character encoding helper for better compatibility
 def get_check_mark():
@@ -100,7 +100,7 @@ def test_monitor_basic_functionality():
     # Test 5: Check logging functionality
     print("\nTest 5: Logging functionality...")
     try:
-        test_crash_data = {
+        test_crash_data: Dict[str, Any] = {
             'timestamp': '2024-08-09T15:30:45.123456',
             'type': 'test_event',
             'process_info': {'name': 'test.exe', 'pid': 12345, 'cmd': 'test command'},
@@ -110,12 +110,12 @@ def test_monitor_basic_functionality():
         monitor.log_crash_event(test_crash_data)
         
         # Check if file was created (now text-based, not JSON)
-        output_file = monitor.config.get("output_file", "eve_crash_log_simple.txt")
+        output_file = monitor.config.get("output_file", os.path.join(monitor.get_logs_directory(), "eve_crash_log_simple.txt"))
         if os.path.exists(output_file):
             with open(output_file, 'r', encoding='utf-8') as f:
                 content = f.read()
             if "CRASH DETECTED" in content and "test_event" in content:
-                print("✓ Logging working: test event written to log file")
+                print(f"✓ Logging working: test event written to {output_file}")
             else:
                 print("✗ Logging failed: test event not found in log")
                 return False
@@ -258,6 +258,4 @@ def main():
         print(f"\nUnexpected error during testing: {e}")
 
 if __name__ == "__main__":
-    main()
-    main()
     main()

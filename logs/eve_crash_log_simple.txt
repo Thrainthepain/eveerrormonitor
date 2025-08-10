@@ -16,7 +16,7 @@ Details: This is a test crash event
 
 
 ============================================================
-CRASH DETECTED: 2024-08-09T15:30:45.123456
+CRASH DETECTED: 2024-08-10T00:05:00
 ============================================================
 Crash Type: test_event
 Process: test.exe (PID: 12345)
@@ -27,7 +27,7 @@ System Information:
 - Memory Usage: 75.0%
 - Available Memory: 8.5 GB
 
-Details: This is a test crash event
+Details: Test crash event for debugging
 ============================================================
 
 
