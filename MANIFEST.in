@@ -1,0 +1,34 @@
+# Include essential documentation
+include README.md
+include LICENSE
+include requirements.txt
+include requirements-dev.txt
+include pyproject.toml
+include RELEASE_NOTES_v1.1.0.md
+include VERSION_SUMMARY_v1.1.0.md
+
+# Include configuration files
+recursive-include config *.json
+
+# Include batch scripts and PowerShell scripts
+recursive-include scripts *.bat *.ps1
+
+# Include documentation
+recursive-include docs *.md
+
+# Include Python source files
+recursive-include python *.py
+
+# Include tests
+recursive-include python/tests *.py
+
+# Exclude development files
+exclude .gitignore
+exclude .vscode/*
+exclude .github/*
+exclude *.log
+exclude *.pyc
+exclude __pycache__
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * *.orig

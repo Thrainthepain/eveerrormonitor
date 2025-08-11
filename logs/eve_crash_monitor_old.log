@@ -1,0 +1,176 @@
+2025-08-10 19:06:13,968 - INFO - Starting Eve Online crash monitoring...
+2025-08-10 19:06:13,968 - INFO - Started process monitoring
+2025-08-10 19:06:13,969 - INFO - Started Windows Event Log monitoring
+2025-08-10 19:06:13,969 - INFO - Started log file monitoring
+2025-08-10 19:07:51,374 - INFO - Starting Eve Online crash monitoring...
+2025-08-10 19:07:51,374 - INFO - Started process monitoring
+2025-08-10 19:07:51,374 - INFO - Started Windows Event Log monitoring
+2025-08-10 19:07:51,374 - INFO - Started log file monitoring
+2025-08-10 19:07:57,357 - INFO - Starting Eve Online crash monitoring...
+2025-08-10 19:07:57,358 - INFO - Started process monitoring
+2025-08-10 19:07:57,358 - INFO - Started Windows Event Log monitoring
+2025-08-10 19:07:57,358 - INFO - Started log file monitoring
+2025-08-10 19:11:04,671 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:09,680 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:14,687 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:19,700 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:24,707 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:29,715 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:34,729 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:39,750 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:44,759 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:49,768 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:54,776 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:11:59,785 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:04,794 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:09,803 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:14,811 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:19,819 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:24,828 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:29,838 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:34,852 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:39,861 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:44,872 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:49,881 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:54,889 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:12:59,896 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:04,906 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:09,915 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:14,922 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:19,931 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:24,940 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:29,949 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:34,966 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:39,980 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:44,990 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:50,001 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:13:55,011 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:00,023 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:05,032 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:10,040 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:15,048 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:20,056 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:25,068 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:30,076 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:35,085 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:40,095 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:45,104 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:50,114 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:14:55,122 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:00,130 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:05,137 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:10,148 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:15,159 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:20,169 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:25,180 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:30,189 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:35,197 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:40,206 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:45,214 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:50,222 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:15:55,231 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:00,238 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:05,246 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:10,252 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:15,260 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:20,269 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:25,278 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:30,285 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:35,293 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:40,301 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:45,310 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:50,317 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:16:55,326 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:00,336 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:05,358 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:10,366 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:15,374 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:20,383 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:25,390 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:30,397 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:35,408 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:40,419 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:40,868 - INFO - Starting Eve Online crash monitoring...
+2025-08-10 19:17:40,869 - INFO - Started process monitoring
+2025-08-10 19:17:40,869 - INFO - Started Windows Event Log monitoring
+2025-08-10 19:17:40,869 - INFO - Started log file monitoring
+2025-08-10 19:17:41,210 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:43,715 - INFO - Stopped Eve Online crash monitoring
+2025-08-10 19:17:45,429 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:50,442 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:55,450 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:17:57,754 - INFO - Starting Eve Online crash monitoring...
+2025-08-10 19:17:57,755 - INFO - Started process monitoring
+2025-08-10 19:17:57,755 - INFO - Started Windows Event Log monitoring
+2025-08-10 19:17:57,755 - INFO - Started log file monitoring
+2025-08-10 19:17:58,085 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:00,459 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:05,467 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:10,475 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:15,485 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:20,493 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:25,501 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:30,511 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:35,519 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:40,532 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:45,540 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:50,549 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:18:55,560 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:00,569 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:05,577 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:10,585 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:15,593 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:20,602 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:25,610 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:30,619 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:35,627 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:40,636 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:45,646 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:50,654 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:19:55,663 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:00,672 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:05,682 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:10,690 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:15,699 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:20,706 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:25,715 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:30,722 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:35,731 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:40,739 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:45,748 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:50,756 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:20:55,765 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:00,772 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:05,781 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:10,788 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:15,797 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:20,804 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:25,813 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:30,828 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:35,837 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:40,847 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:45,855 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:50,864 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:21:55,874 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:00,884 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:05,892 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:10,901 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:15,909 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:20,917 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:25,924 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:30,935 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:35,943 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:40,951 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:45,960 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:50,969 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:22:55,976 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:00,986 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:05,994 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:11,003 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:16,011 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:21,020 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:26,028 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:31,036 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:36,044 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:41,051 - INFO - New Eve process detected: PID 20204
+2025-08-10 19:23:45,084 - INFO - Stopped Eve Online crash monitoring

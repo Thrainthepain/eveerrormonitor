@@ -1,0 +1,17 @@
+# Development requirements for cross-platform testing
+# This file excludes Windows-specific dependencies for CI/CD
+
+# Core dependencies that work on all platforms
+psutil>=5.9.0
+
+# Development and testing tools
+pytest>=7.0.0
+black>=22.0.0  
+flake8>=4.0.0
+mypy>=0.900
+
+# Build tools
+setuptools>=61.0
+wheel>=0.37.0
+build>=0.8.0
+twine>=4.0.0

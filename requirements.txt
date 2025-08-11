@@ -5,7 +5,8 @@
 psutil>=5.9.0
 
 # Windows-specific dependencies for system integration
-pywin32>=306
+# Only install on Windows platforms
+pywin32>=306; sys_platform == "win32"
 
 # Optional: Enhanced GUI themes (if available)
 # tkinter is included with Python by default

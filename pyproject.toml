@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eve-crash-monitor"
+version = "1.1.0"
+description = "Professional monitoring solution for Eve Online crashes and logs"
+authors = [
+    {name = "Eve Crash Monitor Team"},
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["eve", "online", "crash", "monitor", "gaming", "windows", "logs"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Games/Entertainment",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Systems Administration",
+]
+
+# Core dependencies
+dependencies = [
+    "psutil>=5.9.0",
+    "pywin32>=306; sys_platform=='win32'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+    "mypy>=0.900",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/eve-crash-monitor"
+"Bug Reports" = "https://github.com/yourusername/eve-crash-monitor/issues"
+"Source Code" = "https://github.com/yourusername/eve-crash-monitor"
+Documentation = "https://github.com/yourusername/eve-crash-monitor#readme"
+
+[project.scripts]
+eve-crash-monitor = "eve_crash_monitor:main"
+eve-crash-gui = "crash_monitor_gui:main"
+eve-monitor-auto = "run_monitor_auto:main"
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.setuptools.package-data]
+"*" = [
+    "config/*.json",
+    "scripts/*.bat", 
+    "scripts/*.ps1",
+    "docs/*.md",
+    "requirements.txt"
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["python/tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

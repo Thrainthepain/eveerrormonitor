@@ -1,0 +1,4 @@
+[console_scripts]
+eve-crash-gui = crash_monitor_gui:main
+eve-crash-monitor = eve_crash_monitor:main
+eve-monitor-auto = run_monitor_auto:main

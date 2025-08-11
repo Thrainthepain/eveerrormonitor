@@ -8,9 +8,8 @@ import os
 import time
 import json
 import logging
-import threading
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 
 # Check availability of optional dependencies without importing
 psutil_available = True
@@ -41,8 +40,6 @@ class EveOnlineCrashMonitor:
         self.config_file = config_file
         self.monitoring = False
         self.eve_processes: List[Any] = []
-        self.known_process_pids: set[int] = set()  # Track known process PIDs
-        self.monitoring_thread: Optional[threading.Thread] = None
         
         # Default configuration with proper type annotation
         self.config: Dict[str, Any] = {
@@ -97,9 +94,7 @@ class EveOnlineCrashMonitor:
         log_level = getattr(logging, self.config.get("log_level", "INFO"))
         
         # Create logs directory if it doesn't exist
-        # Use absolute path based on the script location
-        script_dir = Path(__file__).parent.parent
-        log_dir = script_dir / "logs"
+        log_dir = Path("../logs")
         log_dir.mkdir(exist_ok=True)
         
         # Setup logger
@@ -149,23 +144,10 @@ class EveOnlineCrashMonitor:
         return processes
     
     def start_monitoring(self) -> None:
-        """Start the monitoring process in a separate thread."""
-        if self.monitoring:
-            print("Monitoring is already running!")
-            return
-            
+        """Start the monitoring process."""
         self.monitoring = True
         self.logger.info("Starting Eve Online crash monitoring...")
         
-        # Start monitoring in a separate thread
-        self.monitoring_thread = threading.Thread(target=self._monitoring_loop, daemon=True)
-        self.monitoring_thread.start()
-        
-        print("Monitoring started successfully!")
-        print("Use 'status' to check progress, 'stop' to stop monitoring.")
-        
-    def _monitoring_loop(self) -> None:
-        """Internal monitoring loop that runs in a separate thread."""
         if self.config.get("enable_process_monitoring", True):
             self.logger.info("Started process monitoring")
             
@@ -181,19 +163,9 @@ class EveOnlineCrashMonitor:
                 # Update process list
                 self.eve_processes = self.get_eve_processes()
                 
-                # Check for new processes (only log processes not seen before)
-                current_pids = {proc.pid for proc in self.eve_processes}
-                new_pids = current_pids - self.known_process_pids
-                
+                # Check for new processes
                 for proc in self.eve_processes:
-                    if proc.pid in new_pids:
-                        self.logger.info(f"New Eve process detected: PID {proc.pid}")
-                
-                # Update known PIDs
-                self.known_process_pids.update(current_pids)
-                
-                # Remove PIDs for processes that no longer exist
-                self.known_process_pids &= current_pids
+                    self.logger.info(f"New Eve process detected: PID {proc.pid}")
                 
                 time.sleep(self.config.get("check_interval", 5))
                 
@@ -203,18 +175,8 @@ class EveOnlineCrashMonitor:
     
     def stop_monitoring(self) -> None:
         """Stop the monitoring process."""
-        if not self.monitoring:
-            print("Monitoring is not currently running.")
-            return
-            
         self.monitoring = False
         self.logger.info("Stopped Eve Online crash monitoring")
-        
-        # Wait for the monitoring thread to finish
-        if self.monitoring_thread and self.monitoring_thread.is_alive():
-            self.monitoring_thread.join(timeout=5)
-            
-        print("Monitoring stopped successfully!")
 
 
 def main():
@@ -244,21 +206,7 @@ def main():
             elif command == "status":
                 status = "Running" if monitor.monitoring else "Stopped"
                 print(f"Monitor status: {status}")
-                if monitor.monitoring:
-                    print(f"Eve processes detected: {len(monitor.eve_processes)}")
-                    if monitor.monitoring_thread and monitor.monitoring_thread.is_alive():
-                        print("Monitoring thread: Active")
-                    else:
-                        print("Monitoring thread: Inactive")
-                else:
-                    print("Use 'start' to begin monitoring.")
-            elif command == "report":
-                print("Generating crash report...")
-                print(f"Current status: {'Running' if monitor.monitoring else 'Stopped'}")
-                print(f"Eve processes currently detected: {len(monitor.eve_processes)}")
-                print(f"Configuration file: {monitor.config_file}")
-                print(f"Log level: {monitor.config.get('log_level', 'INFO')}")
-                print("Report generated successfully!")
+                print(f"Eve processes: {len(monitor.eve_processes)}")
             elif command == "quit":
                 if monitor.monitoring:
                     monitor.stop_monitoring()

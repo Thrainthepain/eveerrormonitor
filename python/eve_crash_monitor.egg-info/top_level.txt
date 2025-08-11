@@ -1,0 +1,7 @@
+crash_monitor_gui
+enhanced_crash_monitor
+eve_crash_monitor
+eveloglite_client
+run_monitor_auto
+test_installation
+tests
