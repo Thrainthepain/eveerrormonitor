@@ -21,18 +21,28 @@ This project provides multiple monitoring solutions to detect Eve Online crashes
 │   ├── PYTHON_README.md        # Python implementation guide
 │   ├── POWERSHELL_README.md    # PowerShell implementation guide
 │   └── VIRTUAL_ENVIRONMENT_GUIDE.md # Virtual environment management
+├── 📁 EveLogLite-master/ # 🎯 CCP Games Official Log Viewer
+│   ├── src/                    # Original C++ Qt source code  
+│   ├── clients/python/         # Original Python 2 client
+│   ├── LICENSE                 # CCP Games license
+│   ├── README.md              # Original CCP documentation
+│   └── INTEGRATION_README.md  # Integration guide
 ├── 📁 logs/            # 📊 Active Log Directory
 │   └── eve_crash_log.txt       # Real crash logs with actual data
 ├── 📁 powershell/      # 🔧 PowerShell Implementation
 │   └── eve_monitor.ps1          # PowerShell crash monitor
 ├── 📁 python/          # 🐍 Python Implementation
 │   ├── eve_crash_monitor.py     # ⭐ Main crash monitor (ACTIVE)
+│   ├── crash_monitor_gui.py    # ⭐ GUI interface (NEW)
+│   ├── enhanced_crash_monitor.py # ⭐ EveLogLite integration (NEW)
+│   ├── eveloglite_client.py    # Modernized CCP client (NEW)
 │   ├── simple_eve_monitor.py   # Simple version for testing
 │   ├── test_monitor.py          # Test scripts
 │   ├── crash_monitor_config.json # Python configuration
 │   └── requirements.txt         # Python dependencies
 ├── 📁 scripts/         # 🚀 Launch & Setup Scripts
 │   ├── install.bat              # Complete installation with venv
+│   ├── run_gui.bat             # ⭐ Launch GUI monitor (NEW)
 │   ├── run_monitor.bat          # Launch the crash monitor
 │   └── setup.bat                # Additional setup utilities
 └── README.md           # 📖 Main project documentation
@@ -40,7 +50,19 @@ This project provides multiple monitoring solutions to detect Eve Online crashes
 
 ## 🚀 Quick Start
 
-### Option 1: Python Monitor (Recommended)
+### Option 1: GUI Interface (NEW - Recommended)
+
+1. **Setup Environment** (if not done already):
+   ```powershell
+   .\scripts\install.bat
+   ```
+
+2. **Run GUI Monitor**:
+   ```powershell
+   .\scripts\run_gui.bat
+   ```
+
+### Option 2: Python Monitor (Command Line)
 
 1. **Setup Environment**:
    ```powershell
@@ -55,6 +77,14 @@ This project provides multiple monitoring solutions to detect Eve Online crashes
 3. **Or Run Simple Monitor**:
    ```powershell
    E:\eve\.venv\Scripts\python.exe python\simple_eve_monitor.py
+   ```
+
+### Option 3: Enhanced Monitor with EveLogLite Integration
+
+1. **Run Enhanced Monitor** (integrates with CCP's EveLogLite if available):
+   ```powershell
+   cd python
+   ..\\.venv\\Scripts\\python.exe enhanced_crash_monitor.py
    ```
 
 ### Option 2: PowerShell Monitor
@@ -73,6 +103,43 @@ This project provides multiple monitoring solutions to detect Eve Online crashes
    ```powershell
    .\eve_monitor.ps1 -Action status
    ```
+
+## 🎯 EveLogLite Integration
+
+### About EveLogLite
+
+**EveLogLite** is the **official log viewer** developed by CCP Games (Team TriLambda) for Eve Online. We've integrated our crash monitor with this professional tool while keeping all original CCP files separate and untouched.
+
+### Integration Features
+
+- **Official CCP Code**: Based on CCP Games' actual log viewer
+- **Real-time Streaming**: Send crash events to EveLogLite's advanced GUI  
+- **Multi-channel Logging**: Separate channels for crashes, processes, events
+- **Professional Analysis**: Built-in statistics and sophisticated filtering
+- **Clean Separation**: Original CCP files remain in `EveLogLite-master/`
+
+### Usage Options
+
+1. **Standalone GUI** (No compilation required):
+   ```powershell
+   .\scripts\run_gui.bat
+   ```
+
+2. **EveLogLite Integration** (Connect to CCP's official GUI):
+   ```powershell
+   # First: Compile EveLogLite (requires Qt 5+)
+   cd EveLogLite-master/src
+   qmake && make
+   
+   # Then: Run EveLogLite server
+   ./LogLite.exe
+   
+   # Finally: Run enhanced monitor
+   cd ../../python
+   ..\\.venv\\Scripts\\python.exe enhanced_crash_monitor.py
+   ```
+
+For detailed EveLogLite integration instructions, see: `EveLogLite-master/INTEGRATION_README.md`
 
 ## 🔧 Virtual Environment Management
 

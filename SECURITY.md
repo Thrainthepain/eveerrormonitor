@@ -36,7 +36,7 @@ This project monitors system processes and Windows Event Logs, which requires co
 If you discover a security vulnerability in the Eve Online Crash Monitor, please report it responsibly:
 
 ### Where to Report
-- **Issues**: Create an issue on the project repository with the label "security"
+- **Email**: Create an issue on the project repository with the label "security"
 - **Private Disclosure**: For sensitive vulnerabilities, contact the maintainer directly
 
 ### What to Include
@@ -104,4 +104,3 @@ For security-related questions or concerns that don't rise to the level of a vul
 ---
 
 **Note**: This project is designed for personal use to monitor Eve Online crashes. While security is important, the scope is limited to local system monitoring without network exposure.
-

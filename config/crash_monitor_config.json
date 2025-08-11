@@ -1,0 +1,40 @@
+{
+    "check_interval": 5,
+    "process_names": [
+        "ExeFile.exe",
+        "eve.exe"
+    ],
+    "log_level": "INFO",
+    "enable_event_log_monitoring": true,
+    "enable_process_monitoring": true,
+    "enable_log_file_monitoring": true,
+    "crash_detection_threshold": 30,
+    "output_file": "../logs/eve_crash_log.txt",
+    "exclude_files": [
+        "eve_crash_monitor.log",
+        "eve_crash_log.txt",
+        "eve_crash_log.json",
+        "eve_crash_log_simple.txt",
+        "simple_eve_crash_log.txt",
+        "crash_monitor.log",
+        "enhanced_crash_monitor.log",
+        "Squirrel-CheckForUpdate.log",
+        "Squirrel-Update.log",
+        "Squirrel.log"
+    ],
+    "exclude_patterns": [
+        "Squirrel",
+        "update",
+        "launcher",
+        "crash_monitor",
+        "crash_log",
+        "monitor",
+        "eve_crash"
+    ],
+    "eve_log_locations": [
+        "%USERPROFILE%\\Documents\\EVE\\logs\\Gamelogs",
+        "%LOCALAPPDATA%\\CCP\\EVE\\SharedCache\\tq\\cache\\MachoNet",
+        "C:\\Program Files (x86)\\CCP\\EVE\\logs",
+        "C:\\Program Files\\CCP\\EVE\\logs"
+    ]
+}

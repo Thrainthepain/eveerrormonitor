@@ -1,0 +1,11 @@
+# Eve Online Crash Monitor Dependencies
+# Python 3.8+ required
+
+# Core dependencies for process monitoring
+psutil>=5.9.0
+
+# Windows-specific dependencies for system integration
+pywin32>=306
+
+# Optional: Enhanced GUI themes (if available)
+# tkinter is included with Python by default

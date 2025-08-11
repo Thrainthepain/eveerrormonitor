@@ -1,5 +1,5 @@
 @echo off
-echo Starting Eve Online Crash Monitor (Command Line)...
+echo Starting Eve Online Crash Monitor (Interactive Mode)...
 echo.
 
 cd /d "%~dp0"
@@ -13,11 +13,11 @@ if not exist "..\\.venv\\Scripts\\python.exe" (
     exit /b 1
 )
 
-REM Run the non-interactive monitor
-echo Running crash monitor in automatic mode...
-echo Press Ctrl+C to stop monitoring.
+REM Run the interactive monitor
+echo Running crash monitor in interactive command mode...
+echo You will be able to use commands like 'start', 'stop', 'status', 'quit'
 echo.
-"..\\.venv\\Scripts\\python.exe" run_monitor_auto.py
+"..\\.venv\\Scripts\\python.exe" eve_crash_monitor.py
 
 if errorlevel 1 (
     echo.
